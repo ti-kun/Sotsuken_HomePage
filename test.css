@@ -1,0 +1,111 @@
+@charset "UTF-8";
+
+/*グローバル*/
+h1, h2, h3 {
+    margin: 0;
+}
+
+/*ボディ*/
+body {
+    margin: 0;
+    background-color: #f9f1d8;
+}
+
+/*メインタイトル*/
+.main_title {
+    height: 20dvh;
+    width: 100%;
+    color: red;
+    font-size: 70px;
+    text-align: center;
+    background-image: url("pictures/RTX3080Ti.JPG");
+    background-size: cover;
+    background-position: center;
+}
+
+/*インデックス*/
+.index {
+    display: flex;
+}
+
+.button {
+    height: 10dvh;
+    width: 25%;
+}
+
+/*大見出し1*/
+.one {
+    color: lightblue;
+    display: block;
+}
+
+.one_member_image {
+    display: block;
+    max-width: 60%;
+    height: auto;
+    margin: 20px auto;
+}
+
+.one ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    column-gap: 50px;
+    justify-content: center;
+    list-style: none;
+}
+
+/**タイトル1**/
+.one_title {
+    color: orange;
+    font-size: 40px;
+    text-align: center;
+}
+
+/*各コンテナ設定*/
+.tiharu {
+    font-size: 30px;
+    background-color: white;
+    border-radius: 20px;
+    border: 8px solid #dda170;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    margin-left: 50px;
+}
+
+.takano{
+    font-size: 30px;
+    background-color: white;
+    border-radius: 20px;
+    border: 8px solid #dda170;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    margin-right: 50px;
+}
+
+
+/**各メンバー紹介**/
+.one_member {
+    color: lightblue;
+    font-size: 20px;
+    margin: 0 auto;
+
+}
+
+.tiharu .one_member {
+    max-width: 72%;
+}
+
+.takano .one_member {
+    max-width: 90%;
+}
+
+.name_tiharu {
+    color: pink;
+    font-size: 30px;
+    text-align: center;
+}
+
+.name_takano {
+    color: pink;
+    font-size: 30px;
+    text-align: center;
+}
