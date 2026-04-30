@@ -72,33 +72,22 @@ body {
 }
 
 /*各コンテナ設定*/
-/**ちはる**/
-.tiharu {
-    text-align: center;
+.tiharu, .takano {
     background-color: white;
     border-radius: 20px;
     border: 8px solid #dda170;
     box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.tiharu {
     margin-left: 50px;
 }
 
-.name_tiharu {
-    color: pink;
-    font-size: 30px;
-    text-align: center;
-}
-
-/**たかの**/
-.takano{
-    font-size: 30px;
-    background-color: white;
-    border-radius: 20px;
-    border: 8px solid #dda170;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+.takano {
     margin-right: 50px;
 }
 
-.name_takano {
+.name_tiharu, .name_takano {
     color: pink;
     font-size: 30px;
     text-align: center;
