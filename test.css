@@ -34,9 +34,17 @@ body {
 }
 
 /*大見出し1*/
+/**共通項**/
 .one {
     color: lightblue;
     display: block;
+}
+
+.one_member {
+    display: inline-block;
+    text-align: left;
+    color: lightblue;
+    font-size: 20px;
 }
 
 .one_member_image {
@@ -52,6 +60,7 @@ body {
     display: flex;
     column-gap: 50px;
     justify-content: center;
+    text-align: center;
     list-style: none;
 }
 
@@ -63,8 +72,9 @@ body {
 }
 
 /*各コンテナ設定*/
+/**ちはる**/
 .tiharu {
-    font-size: 30px;
+    text-align: center;
     background-color: white;
     border-radius: 20px;
     border: 8px solid #dda170;
@@ -72,6 +82,13 @@ body {
     margin-left: 50px;
 }
 
+.name_tiharu {
+    color: pink;
+    font-size: 30px;
+    text-align: center;
+}
+
+/**たかの**/
 .takano{
     font-size: 30px;
     background-color: white;
@@ -79,29 +96,6 @@ body {
     border: 8px solid #dda170;
     box-shadow: 0 5px 20px rgba(0,0,0,0.2);
     margin-right: 50px;
-}
-
-
-/**各メンバー紹介**/
-.one_member {
-    color: lightblue;
-    font-size: 20px;
-    margin: 0 auto;
-
-}
-
-.tiharu .one_member {
-    max-width: 72%;
-}
-
-.takano .one_member {
-    max-width: 90%;
-}
-
-.name_tiharu {
-    color: pink;
-    font-size: 30px;
-    text-align: center;
 }
 
 .name_takano {
