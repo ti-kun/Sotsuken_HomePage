@@ -7,21 +7,24 @@
 </head>
 
 <body>
-    <!--メニューボタン-->
-    <header>
-        <div class="menu-btn" id="menuBtn">
+<!--メニュー-->
+    <div class="menu-wrapper">
+        <input type="checkbox" id="menu-toggle" hidden>
+    
+        <label class="menu-icon" for="menu-toggle">
             <span></span>
             <span></span>
             <span></span>
-        </div>
-
-        <nav id="menu">
+        </label>
+        
+        <div class="overlay"></div>
+        
+            <nav class="menu">
             <ul>
-                <li><a href="#">卒研案内</a></li>
+                <li><a href="infomation.html">卒研案内</a></li>
             </ul>
         </nav>
-    </header>
-
+    </div>
     <!--ヘッダー-->
     <div class="header">
         <!--メインタイトル-->

@@ -25,71 +25,76 @@ body {
 }
 /*メニュー*/
 .menu-wrapper {
-  position: relative;
+    position: relative;
 }
 
 .menu-icon {
-  width: 40px;
-  height: 30px;
-  position: fixed; /* ← fixedにして常に左上固定 */
-  top: 20px;
-  left: 20px;
-  cursor: pointer;
-  z-index: 3;
-  display: inline-block;
+    width: 40px;
+    height: 30px;
+    position: fixed; /* ← fixedにして常に左上固定 */
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 3;
+    display: inline-block;
 }
 
 .menu-icon span {
-  display: block;
-  height: 4px;
-  margin: 6px 0;
-  background: #333;
-  border-radius: 2px;
-  transition: 0.4s;
+    display: block;
+    height: 4px;
+    margin: 6px 0;
+    background: #fff;
+    border-radius: 2px;
+    transition: 0.4s;
 }
 
 /* ハンバーガーがXに変形 */
 #menu-toggle:checked + .menu-icon span:nth-child(1) {
-  transform: translateY(10px) rotate(45deg);
+    transform: translateY(10px) rotate(45deg);
 }
 #menu-toggle:checked + .menu-icon span:nth-child(2) {
-  opacity: 0;
+    opacity: 0;
 }
 #menu-toggle:checked + .menu-icon span:nth-child(3) {
-  transform: translateY(-10px) rotate(-45deg);
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+/* ボタンを黒く*/
+#menu-toggle:checked + .menu-icon span {
+    background: #333;
 }
 
 /* オーバーレイ背景 */
 .overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.5);
-  opacity: 0;
-  pointer-events: none;
-  transition: 0.4s;
-  z-index: 1;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.4s;
+    z-index: 1;
 }
 
 #menu-toggle:checked ~ .overlay {
-  opacity: 1;
-  pointer-events: auto;
+    opacity: 1;
+    pointer-events: auto;
 }
 
-/* メニュー本体（左から出す） */
+/* メニュー本体（右から出す） */
 .menu {
     position: fixed;
     top: 0;
-  left: -250px; /* ← 初期位置を左へ */
+    right: -250px; /* ← 初期位置を右へ */
     width: 250px;
     height: 100%;
     background: #fff;
     box-shadow: 2px 0 8px rgba(0,0,0,0.2);
-    transition: left 0.4s ease;
+    transition: right 0.4s ease;
     z-index: 2;
 }
 
 #menu-toggle:checked ~ .menu {
-  left: 0; /* ← 開いたときは左0へ */
+  right: 0; /* ← 開いたときは右0へ */
 }
 
 .menu ul {
