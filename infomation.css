@@ -9,7 +9,7 @@ body {
 }
 
 .container {
-  max-width: 960px;
+  max-width: 1550px;
   margin: 0 auto;
 }
 
@@ -53,6 +53,95 @@ body {
   color: #0C447C;
 }
 
+/*メニュー*/
+.menu-wrapper {
+    position: relative;
+}
+
+.menu-icon {
+    width: 40px;
+    height: 30px;
+    position: fixed; /* ← fixedにして常に左上固定 */
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 3;
+    display: inline-block;
+}
+
+.menu-icon span {
+    display: block;
+    height: 4px;
+    margin: 6px 0;
+    background: #333;
+    border-radius: 2px;
+    transition: 0.4s;
+}
+
+/* ハンバーガーがXに変形 */
+#menu-toggle:checked + .menu-icon span:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+}
+#menu-toggle:checked + .menu-icon span:nth-child(2) {
+    opacity: 0;
+}
+#menu-toggle:checked + .menu-icon span:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+/* オーバーレイ背景 */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.4s;
+    z-index: 1;
+}
+
+#menu-toggle:checked ~ .overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* メニュー本体（右から出す） */
+.menu {
+    position: fixed;
+    top: 0;
+    right: -250px; /* ← 初期位置を右へ */
+    width: 250px;
+    height: 100%;
+    background: #fff;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+    transition: right 0.4s ease;
+    z-index: 2;
+}
+
+#menu-toggle:checked ~ .menu {
+  right: 0; /* ← 開いたときは右0へ */
+}
+
+.menu ul {
+    list-style: none;
+    padding: 60px 20px;
+}
+
+.menu li {
+    margin: 20px 0;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: #007bff;
+}
+
 /* ---- Filter ---- */
 .filter-bar {
   display: flex;
@@ -86,7 +175,8 @@ body {
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 1px 4px rgba(24,95,165,0.07);
-  overflow-x: auto;
+  overflow: auto;
+  max-height: 550px;
 }
 table {
   width: 100%;
