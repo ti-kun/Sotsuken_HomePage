@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>令和8年 卒業研究発表会 案内</title>
+<link rel="stylesheet" href="graduation_presentation.css">
+</head>
+<body>
+<div class="container">
+
+  <!-- ヘッダー -->
+  <div class="header">
+    <h1>令和8年○○月　卒業研究発表会　案内</h1>
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="label">開催期間</div>
+        <div class="value">〇月△日 〜 〇月□日</div>
+      </div>
+      <div class="info-card">
+        <div class="l abel">開催場所</div>
+        <div class="value">F館7階 ホール</div>
+      </div>
+      <div class="info-card">
+        <div class="label">発表クラス</div>
+        <div class="value">大学コースSE・二年過程SE・ゲームコース</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- フィルター -->
+  <div class="filter-bar">
+    <span>カテゴリで絞り込む：</span>
+    <button class="filter-btn active" data-filter="all">すべて</button>
+    <button class="filter-btn" data-filter="se4">大学コースSE</button>
+    <button class="filter-btn" data-filter="se2">二年過程SE</button>
+    <button class="filter-btn" data-filter="game">ゲームコース</button>
+  </div>
+
+  <!-- 件数表示 -->
+  <div class="count-bar"><strong id="count">20</strong> 件表示中</div>
+
+  <!-- テーブル -->
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:70px">日にち</th>
+          <th style="width:72px">時間</th>
+          <th style="width:100px">発表クラス</th>
+          <th>タイトル</th>
+          <th style="width:110px">カテゴリ</th>
+          <th>概要</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+        <!-- 以下、発表データ（20件のサンプル） -->
+        <tr data-cat="se4">
+          <td>1/25</td><td>5限目</td><td>ABC1</td>
+          <td class="title">レブ珍について</td>
+          <td><span class="badge badge-se4">大学コースSE養成</span></td>
+          <td class="summary"><a href="C:\Users\parfa\OneDrive\ドキュメント\html実習\Sotuken_Home\Sotsuken_HomePage\member.html">れがちぃの卒研日記</a></td>
+        </tr>
+<!--      
+        <tr data-cat="se4">
+          <td>1/25</td><td>5限目</td><td>ABC1</td>
+          <td class="title">クラウドサービスの比較研究</td>
+          <td><span class="badge badge-se4">大学コースSE</span></td>
+          <td class="summary">AWS・Azure・GCPの性能比較検証</td>
+        </tr>
+        <tr data-cat="se2">
+          <td>1/26</td><td>1限目</td><td>DEF2</td>
+          <td class="title">Webアプリ開発の実践</td>
+          <td><span class="badge badge-se2">二年過程SE</span></td>
+          <td class="summary">ReactとNode.jsを用いたSNS開発</td>
+        </tr>
+        <tr data-cat="game">
+          <td>1/26</td><td>2限目</td><td>GHI3</td>
+          <td class="title">2Dアクションゲームの制作</td>
+          <td><span class="badge badge-game">ゲームコース</span></td>
+          <td class="summary">Unityで制作した横スクロール作品</td>
+        </tr>
+        <tr data-cat="se4">
+          <td>1/26</td><td>3限目</td><td>ABC1</td>
+          <td class="title">データベース最適化の研究</td>
+          <td><span class="badge badge-se4">大学コースSE</span></td>
+          <td class="summary">大規模データのクエリ高速化手法</td>
+        </tr>
+        <tr data-cat="se2">
+          <td>1/26</td><td>4限目</td><td>DEF2</td>
+          <td class="title">スマートフォンアプリ開発</td>
+          <td><span class="badge badge-se2">二年過程SE</span></td>
+          <td class="summary">Flutterによるクロスプラットフォーム開発</td>
+        </tr>
+        <tr data-cat="game">
+          <td>1/27</td><td>1限目</td><td>GHI3</td>
+          <td class="title">RPGゲームのAI設計</td>
+          <td><span class="badge badge-game">ゲームコース</span></td>
+          <td class="summary">敵キャラクターの行動AIアルゴリズム</td>
+        </tr>
+        <tr data-cat="se4">
+          <td>1/27</td><td>2限目</td><td>ABC1</td>
+          <td class="title">セキュリティ脆弱性の調査</td>
+          <td><span class="badge badge-se4">大学コースSE</span></td>
+          <td class="summary">Webアプリのペネトレーションテスト実施</td>
+        </tr>
+        <tr data-cat="se2">
+          <td>1/27</td><td>3限目</td><td>DEF2</td>
+          <td class="title">IoTシステムの構築</td>
+          <td><span class="badge badge-se2">二年過程SE</span></td>
+          <td class="summary">Raspberry Piを用いたスマートホーム</td>
+        </tr>
+        <tr data-cat="game">
+          <td>1/27</td><td>4限目</td><td>GHI3</td>
+          <td class="title">VRコンテンツの開発</td>
+          <td><span class="badge badge-game">ゲームコース</span></td>
+          <td class="summary">Meta Quest向け体験型VRアプリ制作</td>
+        </tr>
+        <tr data-cat="se4">
+          <td>1/28</td><td>1限目</td><td>ABC1</td>
+          <td class="title">自然言語処理の応用研究</td>
+          <td><span class="badge badge-se4">大学コースSE</span></td>
+          <td class="summary">チャットボット開発と精度向上の検証</td>
+        </tr>
+        <tr data-cat="se2">
+          <td>1/28</td><td>2限目</td><td>DEF2</td>
+          <td class="title">ネットワーク監視ツール開発</td>
+          <td><span class="badge badge-se2">二年過程SE</span></td>
+          <td class="summary">リアルタイムトラフィック解析システム</td>
+        </tr>
+        <tr data-cat="game">
+          <td>1/28</td><td>3限目</td><td>GHI3</td>
+          <td class="title">シューティングゲームの制作</td>
+          <td><span class="badge badge-game">ゲームコース</span></td>
+          <td class="summary">物理演算を取り入れた弾道シミュレーション</td>
+        </tr>
+        <tr data-cat="se4">
+          <td>1/28</td><td>4限目</td><td>ABC1</td>
+          <td class="title">ブロックチェーンの活用調査</td>
+          <td><span class="badge badge-se4">大学コースSE</span></td>
+          <td class="summary">スマートコントラクトの実装と評価</td>
+        </tr>
+        <tr data-cat="se2">
+          <td>1/29</td><td>1限目</td><td>DEF2</td>
+          <td class="title">ECサイト構築プロジェクト</td>
+          <td><span class="badge badge-se2">二年過程SE</span></td>
+          <td class="summary">決済機能付き通販サイトの設計と実装</td>
+        </tr>
+        <tr data-cat="game">
+          <td>1/29</td><td>2限目</td><td>GHI3</td>
+          <td class="title">パズルゲームのUI研究</td>
+          <td><span class="badge badge-game">ゲームコース</span></td>
+          <td class="summary">ユーザビリティを重視したUI設計の検討</td>
+        </tr>
+        <tr data-cat="se4">
+          <td>1/29</td><td>3限目</td><td>ABC1</td>
+          <td class="title">画像処理アルゴリズムの研究</td>
+          <td><span class="badge badge-se4">大学コースSE</span></td>
+          <td class="summary">深層学習による医療画像の異常検出</td>
+        </tr>
+        <tr data-cat="se2">
+          <td>1/29</td><td>4限目</td><td>DEF2</td>
+          <td class="title">チャットアプリの開発</td>
+          <td><span class="badge badge-se2">二年過程SE</span></td>
+          <td class="summary">WebSocketを用いたリアルタイム通信実装</td>
+        </tr>
+        <tr data-cat="game">
+          <td>1/30</td><td>1限目</td><td>GHI3</td>
+          <td class="title">音楽ゲームの設計と実装</td>
+          <td><span class="badge badge-game">ゲームコース</span></td>
+          <td class="summary">リズム判定アルゴリズムの精度改善</td>
+        </tr>
+        <tr data-cat="se4">
+          <td>1/30</td><td>2限目</td><td>ABC1</td>
+          <td class="title">推薦システムの構築研究</td>
+          <td><span class="badge badge-se4">大学コースSE</span></td>
+          <td class="summary">協調フィルタリングによる商品推薦の実装</td>
+-->  
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="footer">令和8年度 卒業研究発表会</div>
+</div>
+
+<script>
+  const btns = document.querySelectorAll('.filter-btn');
+  const rows = document.querySelectorAll('#tableBody tr');
+  const countEl = document.getElementById('count');
+
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      let visible = 0;
+      rows.forEach(row => {
+        const show = f === 'all' || row.dataset.cat === f;
+        row.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      countEl.textContent = visible;
+    });
+  });
+</script>
+</body>
+</html>
