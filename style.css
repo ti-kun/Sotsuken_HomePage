@@ -83,7 +83,8 @@ body {
 }
 
 .one_member {
-    display: inline-block;
+    margin: 0;
+    padding: 0;
     height: 26%;
     text-align: left;
     color: lightblue;
@@ -94,17 +95,19 @@ body {
     display: block;
     max-width: 60%;
     height: auto;
-    margin: 20px auto;
+    margin: 40px auto;
 }
 
 .member ul {
     margin: 0;
     padding: 0;
+    margin-bottom: 50px;
     display: flex;
     column-gap: 50px;
     justify-content: center;
     text-align: center;
     list-style: none;
+    align-items: stretch;
 }
 
 /**タイトル1**/
@@ -112,21 +115,27 @@ body {
     color: orange;
     font-size: 40px;
     text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
 /*各コンテナ設定*/
-.tiharu, .takano {
+.member_card {
+    display: flex;
     background-color: white;
     border-radius: 20px;
     border: 8px double #dda170;
     box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    flex-direction: column;
+    width: 45%;
+    align-items: center;
 }
 
-.tiharu {
+#tiharu {
     margin-left: 50px;
 }
 
-.takano {
+#takano {
     margin-right: 50px;
 }
 
