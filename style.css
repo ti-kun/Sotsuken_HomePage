@@ -35,7 +35,7 @@ body {
 
 /*大見出し1*/
 /**共通項**/
-.one {
+.member {
     color: lightblue;
     display: block;
 }
@@ -55,7 +55,7 @@ body {
     margin: 20px auto;
 }
 
-.one ul {
+.member ul {
     margin: 0;
     padding: 0;
     display: flex;
@@ -66,7 +66,7 @@ body {
 }
 
 /**タイトル1**/
-.one_title {
+.sub_title {
     color: orange;
     font-size: 40px;
     text-align: center;
