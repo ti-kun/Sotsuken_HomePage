@@ -42,6 +42,7 @@ body {
 
 .one_member {
     display: inline-block;
+    height: 26%;
     text-align: left;
     color: lightblue;
     font-size: 20px;
