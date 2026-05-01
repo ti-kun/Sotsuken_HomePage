@@ -5,6 +5,10 @@ h1, h2, h3 {
     margin: 0;
 }
 
+html {
+    overflow-y: scroll;
+}
+
 /*ボディ*/
 body {
     margin: 0;
@@ -13,6 +17,7 @@ body {
 
 /*メインタイトル*/
 .main_title {
+    display: flex;
     height: 20dvh;
     width: 100%;
     color: red;
@@ -21,6 +26,8 @@ body {
     background-image: url("pictures/RTX3080Ti.JPG");
     background-size: cover;
     background-position: center;
+    justify-content: center;
+    align-items: center;
 }
 
 /*インデックス*/
@@ -29,8 +36,43 @@ body {
 }
 
 .button {
+    display: flex;
+    font-size: 30px;
+    text-align: center;
+    background-color: rgb(0, 110, 255);
+    border-top: 2px solid rgb(8, 0, 126);
+    border-bottom: 2px solid rgb(8, 0, 126);
     height: 10dvh;
-    width: 25%;
+    width: 33.33%;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.button_txt {
+    color: white;
+    transition: 0.2s;
+}
+
+.button:hover .button_txt {
+    opacity: 1;              /* 透明度 */
+    transform: scale(1.03);    /* 拡大 */
+    transform: translateY(-3px);
+}
+
+#button1 {
+    border-right: 1px solid rgb(8, 0, 126);
+    border-left: 2px solid rgb(8, 0, 126);
+}
+
+#button2 {
+    border-right: 1px solid rgb(8, 0, 126);
+    border-left: 1px solid rgb(8, 0, 126);
+}
+
+#button3 {
+    border-right: 2px solid rgb(8, 0, 126);
+    border-left: 1px solid rgb(8, 0, 126);
 }
 
 /*大見出し1*/
@@ -76,7 +118,7 @@ body {
 .tiharu, .takano {
     background-color: white;
     border-radius: 20px;
-    border: 8px solid #dda170;
+    border: 8px double #dda170;
     box-shadow: 0 5px 20px rgba(0,0,0,0.2);
 }
 
