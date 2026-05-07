@@ -1,12 +1,12 @@
 @charset "UTF-8";
 @font-face {
     font-family: "けいフォント";
-    src: url("fonts/keifont.ttf");
+    src: url("../fonts/keifont.ttf");
 }
 
 @font-face {
     font-family: "あずきフォント";
-    src: url("fonts/azuki.ttf");
+    src: url("../fonts/azuki.ttf");
 }
 
 /*グローバル*/
@@ -127,7 +127,7 @@ body {
     font-family: "けいフォント";
     font-size: 100px;
     text-align: center;
-    background-image: url("pictures/RTX3080Ti.JPG");
+    background-image: url("../pictures/RTX3080Ti.JPG");
     background-size: cover;
     background-position: center;
     justify-content: center;
@@ -137,6 +137,8 @@ body {
 /*インデックス*/
 .index {
     display: flex;
+    position: sticky;
+    top: 0;
 }
 
 .button {
@@ -152,6 +154,11 @@ body {
     justify-content: center;
     align-items: center;
     text-decoration: none;
+    transition: 0.2s;
+}
+
+.button.active {
+    background-color: rgb(0, 110, 255, 0.5);
 }
 
 .button_txt {
@@ -159,9 +166,11 @@ body {
     transition: 0.2s;
 }
 
+.button:hover {
+    background-color: rgb(0, 110, 255, 0.8);
+}
+
 .button:hover .button_txt {
-    opacity: 1;              /* 透明度 */
-    transform: scale(1.03);    /* 拡大 */
     transform: translateY(-3px);
 }
 
