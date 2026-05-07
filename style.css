@@ -187,29 +187,11 @@ body {
     display: block;
 }
 
-.one_member {
-    margin: 0;
-    padding: 0;
-    height: 26%;
-    text-align: left;
-    color: lightblue;
-    font-size: 20px;
-    font-family: "あずきフォント";
-}
-
-.one_member_image {
-    display: block;
-    max-width: 60%;
-    height: auto;
-    margin: 40px auto;
-}
-
 .member ul {
-    margin: 0;
-    padding: 0;
-    margin-bottom: 50px;
-    display: flex;
+    margin: 0px 0px 50px 0px;
+    padding: 0px;
     column-gap: 50px;
+    display: flex;
     justify-content: center;
     text-align: center;
     list-style: none;
@@ -235,8 +217,39 @@ body {
     border: 8px double #dda170;
     box-shadow: 0 5px 20px rgba(0,0,0,0.2);
     flex-direction: column;
-    width: 45%;
+    max-width: 45%;
     align-items: center;
+}
+
+.name {
+    color: pink;
+    font-family: "あずきフォント";
+    font-size: 40px;
+    text-align: center;
+    height: 15%;
+}
+
+.member_txt {
+    margin: 0;
+    padding: 0;
+    max-width: 80%;
+    text-align: left;
+    color: lightblue;
+    text-shadow: 1px 1px 1px black;
+    font-size: 25px;
+    font-family: "あずきフォント";
+}
+
+.member_link {
+    display: block;
+    max-width: 60%;
+    margin: 50px auto;
+    padding: 0px;
+}
+
+.member_image {
+    display: block;
+    width: 100%;
 }
 
 #tiharu {
@@ -245,11 +258,4 @@ body {
 
 #takano {
     margin-right: 50px;
-}
-
-.name_tiharu, .name_takano, .name_takenoko{
-    color: pink;
-    font-family: "あずきフォント";
-    font-size: 40px;
-    text-align: center;
 }
