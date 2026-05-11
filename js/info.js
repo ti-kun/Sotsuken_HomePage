@@ -22,3 +22,37 @@ document.querySelectorAll(".link-row").forEach(row => {
     window.open(row.dataset.href, "_blank");
     });
 });
+
+
+fetch("../php/get_data.php")
+    .then(response => response.json())
+    .then(data => {
+
+        const tbody = document.getElementById("tableBody");
+
+        data.forEach(item => {
+
+        tbody.innerHTML += `
+            <tr class="link-row"
+                data-href="${item.HP_link}">
+
+            <td>${item.date}</td>
+
+            <td>${item.time}限目</td>
+
+            <td>${item.class_code}</td>
+
+            <td class="title">
+                ${item.title}
+            </td>
+
+            <td class="summary">
+                ${item.link_title}
+            </td>
+
+            </tr>
+        `;
+
+        });
+
+    });
