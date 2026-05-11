@@ -250,6 +250,7 @@ body {
 
 .name {
     color: pink;
+    text-shadow: 2px 2px 3px rgb(87, 87, 87);
     font-family: "あずきフォント";
     font-size: 40px;
     text-align: center;
