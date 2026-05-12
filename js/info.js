@@ -1,40 +1,80 @@
-/**件数表示 */
-const btns = document.querySelectorAll('.filter-btn');
+/**絞り込み・件数表示 */
+const datebtns = document.querySelectorAll('#date-btn .filter-btn');
+const timebtns = document.querySelectorAll('#time-btn .filter-btn');
+const resetbtn = document.querySelector('#reset-btn');
+
 const countEl = document.getElementById('count');
 
-btns.forEach(btn => {
+/**初期状態 */
+
+let selectedDate = 'all';
+let selectedTime = 'all';
+
+/**日付 */
+datebtns.forEach(btn => {
 
     btn.addEventListener('click', () => {
 
-        btns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+        selectedDate = btn.dataset.date;
 
-        const f = btn.dataset.filter;
-
-        const rows = document.querySelectorAll('#tableBody tr');
-
-        let visible = 0;
-
-        rows.forEach(row => {
-
-            const show =
-                f === 'all' ||
-                row.dataset.date === f;
-
-            row.style.display = show ? '' : 'none';
-
-            if(show){
-                visible++;
-            }
-
-        });
-
-        countEl.textContent = visible;
+        updateFilter();
 
     });
 
 });
 
+/**時間 */
+timebtns.forEach(btn => {
+
+    btn.addEventListener('click', () => {
+
+        selectedTime = btn.dataset.time;
+
+        updateFilter();
+
+    });
+
+});
+
+/**リセット */
+resetbtn.addEventListener('click', () => {
+
+    selectedDate = 'all';
+    selectedTime = 'all';
+
+    updateFilter();
+
+});
+
+function updateFilter(){
+
+    const rows = document.querySelectorAll('#tableBody tr');
+
+    let visible = 0;
+
+    rows.forEach(row => {
+
+        const show =
+
+            (selectedDate === 'all' ||
+                row.dataset.date === selectedDate)
+
+            &&
+
+            (selectedTime === 'all' ||
+                row.dataset.time === selectedTime);
+
+        row.style.display = show ? '' : 'none';
+
+        if(show){
+            visible++;
+        }
+
+    });
+
+    countEl.textContent = visible;
+
+}
 
 /**データ取得及びテーブル反映 */
 document.addEventListener("DOMContentLoaded", () => {
@@ -52,7 +92,8 @@ document.addEventListener("DOMContentLoaded", () => {
             tbody.innerHTML += `
             <tr class="link-row"
                 data-href="${item.HP_link}"
-                data-date="${item.date}">
+                data-date="${item.date}"
+                data-time="${item.time}">
 
                 <td>${item.date}</td>
 
