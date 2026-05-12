@@ -180,24 +180,24 @@ body {
   gap: 30px;
 }
 
-#date-btn {
+.date-card {
   display: flex;
   width: 30%;
 }
 
-#time-btn {
+.time-card {
   display: flex;
   width: 50%;
   border-left: 1px solid gray;
   border-right: 1px solid gray;
 }
 
-#reset-btn {
+.reset-card {
   display: flex;
   width: 20%;
 }
 
-.filter-btn {
+.filter-card button {
   border: 1.5px solid #B5D4F4;
   background: #fff;
   color: #185FA5;
@@ -208,8 +208,8 @@ body {
   cursor: pointer;
   transition: background 0.15s, color 0.15s;
 }
-.filter-btn:hover { background: #E6F1FB; }
-.filter-btn.active { background: #185FA5; color: #fff; border-color: #185FA5; }
+.filter-card button:hover { background: #E6F1FB; }
+.filter-card button.active { background: #185FA5; color: #fff; border-color: #185FA5; }
 
 /* ---- Table ---- */
 .table-wrap {

@@ -1,7 +1,7 @@
 /**絞り込み・件数表示 */
-const datebtns = document.querySelectorAll('#date-btn .filter-btn');
-const timebtns = document.querySelectorAll('#time-btn .filter-btn');
-const resetbtn = document.querySelector('#reset-btn');
+const datebtns = document.querySelectorAll('.date-btn');
+const timebtns = document.querySelectorAll('.time-btn');
+const resetbtn = document.querySelector('.reset-btn');
 
 const countEl = document.getElementById('count');
 
