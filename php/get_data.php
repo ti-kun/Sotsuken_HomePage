@@ -16,6 +16,7 @@ $sql = "
     FROM members
     JOIN class
     ON members.class_code = class.class_code
+    ORDER BY date, time
 ";
 
 $stmt = $pdo->query($sql);
