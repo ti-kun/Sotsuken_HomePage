@@ -64,9 +64,9 @@ CREATE TABLE `members` (
 
 INSERT INTO `members` (`No`, `date`, `time`, `class_code`, `title`, `HP_link`, `link_title`) VALUES
 (1, '2027-01-05', '1', 'US4A', 'ｵｶｼｨﾚｶﾞｼｨ乗りについて', 'home.html', 'ちはるんの卒研紹介ぺーじ♡'),
-(2, '2027-01-05', '1', 'US3A', '原発は再稼働するべきか否か', 'https://www.tepco.co.jp/index-j.html', '東電HP'),
+(2, '2027-01-05', '3', 'US3A', '原発は再稼働するべきか否か', 'https://www.tepco.co.jp/index-j.html', '東電HP'),
 (3, '2027-01-06', '5', 'US2A', 'ﾋﾟｽﾄﾝ横向きｴﾝｼﾞﾝにﾀｰﾋﾞﾝは乗っけるべきか', 'https://www.subaru.jp/', 'スバルHP'),
-(4, '2027-01-06', '3', 'US1A', 'ECUチューニング', 'https://note.com/labratory_ktech/n/n192a1be865c2', 'フルコン化に必要なもの');
+(4, '2027-01-06', '1', 'US1A', 'ECUチューニング', 'https://note.com/labratory_ktech/n/n192a1be865c2', 'フルコン化に必要なもの');
 
 --
 -- ダンプしたテーブルのインデックス
