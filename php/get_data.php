@@ -9,7 +9,14 @@ $pdo = new PDO(
     ""
 );
 
-$sql = "SELECT * FROM members";
+$sql = "
+    SELECT
+        members.*,
+        class.class_name
+    FROM members
+    JOIN class
+    ON members.class_code = class.class_code
+";
 
 $stmt = $pdo->query($sql);
 
