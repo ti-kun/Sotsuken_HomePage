@@ -19,7 +19,7 @@ btns.forEach(btn => {
 
             const show =
                 f === 'all' ||
-                row.dataset.cat === f;
+                row.dataset.date === f;
 
             row.style.display = show ? '' : 'none';
 
@@ -51,7 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             tbody.innerHTML += `
             <tr class="link-row"
-                data-href="${item.HP_link}">
+                data-href="${item.HP_link}"
+                data-date="${item.date}">
 
                 <td>${item.date}</td>
 

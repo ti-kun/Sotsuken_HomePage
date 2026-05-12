@@ -6,7 +6,7 @@ header('Content-Type: application/json');
 $pdo = new PDO(
     "mysql:host=localhost;dbname=group_list_db;charset=utf8",
     "root",
-    ""
+    "Ti-kun@4808"
 );
 
 $sql = "
