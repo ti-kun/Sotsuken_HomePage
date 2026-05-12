@@ -2,6 +2,8 @@
 const datebtns = document.querySelectorAll('.date-btn');
 const timebtns = document.querySelectorAll('.time-btn');
 const resetbtn = document.querySelector('.reset-btn');
+const datecard = document.querySelector('.date-card');
+const timecard = document.querySelector('.time-card');
 
 const countEl = document.getElementById('count');
 
@@ -9,16 +11,33 @@ const countEl = document.getElementById('count');
 
 let selectedDate = 'all';
 let selectedTime = 'all';
+datecard.classList.add("full");
+timecard.classList.add("hidden");
 
 /**日付 */
 datebtns.forEach(btn => {
 
     btn.addEventListener('click', () => {
+        if(btn.classList.contains("active")){
+            btn.classList.remove("active");
+            selectedDate = 'all';
+            timecard.classList.add("hidden");
+            datecard.classList.add("full");
+        }else{
+            datebtns.forEach(b => {
+                b.classList.remove("active");
+            });
+            
+            btn.classList.add("active");
 
         selectedDate = btn.dataset.date;
+        datecard.classList.remove("full");
+        setTimeout(() => {
+            timecard.classList.remove("hidden");
+        }, 195)
+    }
 
         updateFilter();
-
     });
 
 });
@@ -27,11 +46,20 @@ datebtns.forEach(btn => {
 timebtns.forEach(btn => {
 
     btn.addEventListener('click', () => {
+        if(btn.classList.contains("active")){
+            btn.classList.remove("active");
+            selectedTime = 'all';
+        }else{
+            timebtns.forEach(t => {
+                t.classList.remove("active");
+            });
+            
+            btn.classList.add("active");
 
         selectedTime = btn.dataset.time;
+        }
 
         updateFilter();
-
     });
 
 });
@@ -39,8 +67,18 @@ timebtns.forEach(btn => {
 /**リセット */
 resetbtn.addEventListener('click', () => {
 
+    datebtns.forEach(b => {
+        b.classList.remove("active");
+    });
+
+    timebtns.forEach(t => {
+        t.classList.remove("active");
+    });
+
     selectedDate = 'all';
     selectedTime = 'all';
+    datecard.classList.add("full");
+    timecard.classList.add("hidden");
 
     updateFilter();
 

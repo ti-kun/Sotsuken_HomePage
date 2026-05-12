@@ -175,26 +175,33 @@ body {
 }
 
 .filter-card {
+  display: flex;
   justify-content: center;
   align-items: center;
   gap: 30px;
+  transition: 0.2s;
 }
 
 .date-card {
-  display: flex;
   width: 30%;
+  border-right: 1px solid gray;
 }
 
 .time-card {
-  display: flex;
   width: 50%;
-  border-left: 1px solid gray;
   border-right: 1px solid gray;
 }
 
 .reset-card {
-  display: flex;
   width: 20%;
+}
+
+.full {
+  width: 80%;
+  gap: 120px;
+}
+.hidden {
+  display: none;
 }
 
 .filter-card button {
