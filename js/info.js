@@ -21,8 +21,12 @@ datebtns.forEach(btn => {
         if(btn.classList.contains("active")){
             btn.classList.remove("active");
             selectedDate = 'all';
+            selectedTime = 'all';
             timecard.classList.add("hidden");
             datecard.classList.add("full");
+            timebtns.forEach(t => {
+                t.classList.remove("active");
+            });
         }else{
             datebtns.forEach(b => {
                 b.classList.remove("active");
