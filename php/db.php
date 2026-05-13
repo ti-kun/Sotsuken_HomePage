@@ -3,13 +3,13 @@
 define('DB_HOST',    'localhost');
 define('DB_NAME',    'group_list_db');
 define('DB_USER',    'root');
-define('DB_PASS',    '');
+define('DB_PASS',    'Ti-kun@4808');
 define('DB_CHARSET', 'utf8mb4');
 
 function getDBConnection(): PDO {
     $dsn = 'mysql:host=' . DB_HOST
-         . ';dbname='    . DB_NAME
-         . ';charset='   . DB_CHARSET;
+    . ';dbname='    . DB_NAME
+    . ';charset='   . DB_CHARSET;
 
     $options = [
         PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,

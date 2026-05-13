@@ -2,120 +2,7 @@
 // ─── API パス（html/ から見た相対パス）─────────────────
 const API_BASE = '../php/get_members.php';
 
-<<<<<<< HEAD
-const countEl = document.getElementById('count');
-
-/**初期状態 */
-
-let selectedDate = 'all';
-let selectedTime = 'all';
-datecard.classList.add("full");
-timecard.classList.add("hidden");
-
-/**日付 */
-datebtns.forEach(btn => {
-
-    btn.addEventListener('click', () => {
-        if(btn.classList.contains("active")){
-            btn.classList.remove("active");
-            selectedDate = 'all';
-            selectedTime = 'all';
-            timecard.classList.add("hidden");
-            datecard.classList.add("full");
-            timebtns.forEach(t => {
-                t.classList.remove("active");
-            });
-        }else{
-            datebtns.forEach(b => {
-                b.classList.remove("active");
-            });
-            
-            btn.classList.add("active");
-
-        selectedDate = btn.dataset.date;
-        datecard.classList.remove("full");
-        setTimeout(() => {
-            timecard.classList.remove("hidden");
-        }, 195)
-    }
-
-        updateFilter();
-    });
-
-});
-
-/**時間 */
-timebtns.forEach(btn => {
-
-    btn.addEventListener('click', () => {
-        if(btn.classList.contains("active")){
-            btn.classList.remove("active");
-            selectedTime = 'all';
-        }else{
-            timebtns.forEach(t => {
-                t.classList.remove("active");
-            });
-            
-            btn.classList.add("active");
-
-        selectedTime = btn.dataset.time;
-        }
-
-        updateFilter();
-    });
-
-});
-
-/**リセット */
-resetbtn.addEventListener('click', () => {
-
-    datebtns.forEach(b => {
-        b.classList.remove("active");
-    });
-
-    timebtns.forEach(t => {
-        t.classList.remove("active");
-    });
-
-    selectedDate = 'all';
-    selectedTime = 'all';
-    datecard.classList.add("full");
-    timecard.classList.add("hidden");
-
-    updateFilter();
-
-});
-
-function updateFilter(){
-
-    const rows = document.querySelectorAll('#tableBody tr');
-
-    let visible = 0;
-
-    rows.forEach(row => {
-
-        const show =
-
-            (selectedDate === 'all' ||
-                row.dataset.date === selectedDate)
-
-            &&
-
-            (selectedTime === 'all' ||
-                row.dataset.time === selectedTime);
-
-        row.style.display = show ? '' : 'none';
-
-        if(show){
-            visible++;
-        }
-
-    });
-
-    countEl.textContent = visible;
-=======
 let allData = [];
->>>>>>> origin/develop
 
 // 時間コードを表示文字列に変換
 function timeLabel(t) {
@@ -160,7 +47,7 @@ function renderTable(data) {
 function escHtml(str) {
     if (!str) return '';
     return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-              .replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+        .replace(/"/g, '&quot;').replace(/'/g, '&#039;');
 }
 
 // フィルター適用
