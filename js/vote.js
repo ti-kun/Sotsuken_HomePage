@@ -15,16 +15,53 @@ document.addEventListener("DOMContentLoaded", () => {
                     <td>${item.Age}</td>
                     <td>${item.Name}</td>
                     <td>${item.Mail}</td>
-                    <td>
+                    <td class="Link">
                         <a href="${item.Link}" target="_blank">
                             ${item.Link}
                         </a>
                     </td>
-                    <td class="check-box"><input type="checkbox" class="checkbox-button"></td>
+                    <td class="radio"><input type="radio" name="vote" class="vote-button"></td>
                 </tr>
                 `;
             });
 
         });
+
+});
+
+/**フィルターボタン */
+const filterfavoritebtn = document.querySelector('.filter-favorite');
+
+filterfavoritebtn.addEventListener('click', () => {
+    filterfavoritebtn.classList.toggle("active");
+
+    const rows = document.querySelectorAll('#tableBody tr');
+
+    rows.forEach(row => {
+        if (filterfavoritebtn.classList.contains("active")) {
+            if (!row.classList.contains("favorite-row")) {
+                row.style.display = "none";
+            }
+        }else{
+            row.style.display = "";
+        }
+    });
+});
+
+/**お気に入りボタン */
+document.addEventListener("click", e => {
+
+    if (e.target.classList.contains("favorite-button")) {
+        const btn = e.target;
+        const row = btn.closest("tr");
+
+        btn.classList.toggle("active");
+        row.classList.toggle("favorite-row");
+
+        btn.textContent =
+            btn.classList.contains("active")
+            ? "★"
+            : "☆";
+    }
 
 });

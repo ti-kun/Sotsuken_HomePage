@@ -15,6 +15,19 @@
     --radius:      10px;
 }
 
+/**login.html*/
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    background: #B5D4F4;
+}
+
+/**vote.html*/
+
 body{
     display: flex;
     flex-direction: column;
@@ -40,10 +53,6 @@ body{
     margin: 50px 0;
     border-radius: var(--radius);
 
-    .table-wrap {
-        padding: 12px 0 0 0;
-    }
-
     div {
         display: flex;
         justify-content: center;
@@ -51,55 +60,107 @@ body{
         width: 90%;
         border-radius: var(--radius);
 
-        table {
-            width: 100%;
-            text-align: left;
-            font-size: 18px;
+        &.filter-bar-wrap {
+            align-items: center;
+            padding: 15px 0;
+            font-size: 20px;
+            gap: 30px;
 
-            thead {
-                position: sticky;
-                top: 0;
-                z-index: 2;
+            button {
+                padding: 13px 5px;
+                border: 1.5px solid #B5D4F4;
+                background: #fff;
+                color: #185FA5;
+                border-radius: 30px;
+                font-size: 15px;
+                cursor: pointer;
+                transition: 0.1s;
 
-                th {
-                    padding: 7px 14px;
-                    margin: 12px 0;
+                &:hover {
+                    background: #E6F1FB;
                 }
 
-                .border {
-                    border-right: 1px solid gray;
-                }
-
-                #favorite, #vote {
-                    width: 1%;
-                    white-space: nowrap;
+                &.active {
+                    background: #185FA5;
+                    color: #fff;
+                    border-color: #185FA5;
                 }
             }
+        }
 
-            tbody {
-                td {
-                    padding: 15px 14px
-                }
+        &.table-wrap {
+            padding: 12px 0;
 
-                .star, .check-box {
-                    text-align: center;
-                }
+            table {
+                width: 100%;
+                text-align: left;
+                font-size: 18px;
 
-                .favorite-button {
-                    font-size: 18px;
-                    border: none;
-                    background: none;
-                    padding: 0;
-                    cursor: pointer;
+                thead {
+                    position: sticky;
+                    top: 0;
+                    z-index: 2;
 
-                    &:hover {
-                        background: #b91c1c;
+                    th {
+                        padding: 7px 14px;
+                        margin: 12px 0;
+                    }
+
+                    .border {
+                        border-right: 1px solid gray;
+                    }
+
+                    #favorite, #vote {
+                        width: 1%;
+                        white-space: nowrap;
                     }
                 }
 
-                .checkbox-button {
-                    width: 20px;
-                    height: 20px;
+                tbody {
+                    tr {
+                        height: auto;
+                    }
+                    td {
+                        padding: 15px 14px
+                    }
+
+                    .star, .radio {
+                        text-align: center;
+                    }
+
+                    .favorite-button {
+                        font-size: 23px;
+                        border: none;
+                        background: none;
+                        padding: 3px 7px;
+                        border-radius: 10px;
+                        cursor: pointer;
+                        transition: 0.1s;
+
+                        &:hover {
+                            background: #9b9b9b;
+                        }
+
+                        &.active {
+                            color: gold;
+                        }
+                    }
+
+                    .Link {
+
+                        a {
+                            max-width: 430px;
+                            display: inline-block;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                        }
+                    }
+                    
+                    .vote-button {
+                        width: 25px;
+                        height: 25px;
+                    }
                 }
             }
         }
