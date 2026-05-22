@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 tbody.innerHTML += `
                 <tr>
                     <td class="star"><button class="favorite-button">☆</button></td>
-                    <td>${item.Age}</td>
                     <td>${item.Name}</td>
                     <td>${item.Mail}</td>
                     <td class="Link">
@@ -20,7 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
                             ${item.Link}
                         </a>
                     </td>
-                    <td class="radio"><input type="radio" name="vote" class="vote-button"></td>
+                    <td class="radio">
+                        <input type="radio" name="vote" class="vote-button" value="${item.No}">
+                    </td>
                 </tr>
                 `;
             });
@@ -64,4 +65,51 @@ document.addEventListener("click", e => {
             : "☆";
     }
 
+});
+
+/**投票ボタン */
+const voteBtn = document.querySelector(".vote-button");
+
+voteBtn.addEventListener("click", async () => {
+
+    const selected = document.querySelector(
+        'input[name="vote"]:checked'
+    );
+
+    if (!selected) {
+        alert("選択してください");
+        return;
+    }else{
+        const votedNo = selected.value;
+        const result = confirm(
+            `${votedNo} に投票しますか？`
+        );
+
+        if (!result) {
+            return;
+        }
+
+        const response = await fetch(
+            "submit_vote.php",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type":
+                    "application/x-www-form-urlencoded"
+                },
+
+                body:
+                `voted_no=${votedNo}`
+            }
+        );
+
+        const data = await response.json();
+        if (data.success) {
+            alert("投票完了");
+            location.href =
+            "../php/result.php";
+        } else {
+            alert(data.message);
+        }
+    }
 });

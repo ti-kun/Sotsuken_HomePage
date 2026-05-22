@@ -41,6 +41,15 @@ body{
 }
 
 /*各要素*/
+.login-user {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 3%;
+    font-size: 20px;
+    font-weight: 400;
+}
+
 .contents-card {
     display: flex;
     flex-direction: column;
@@ -50,7 +59,7 @@ body{
     background: var(--card);
     gap: 20px;
     padding: 30px 10px;
-    margin: 50px 0;
+    margin: 70px 0;
     border-radius: var(--radius);
 
     div {
@@ -95,6 +104,10 @@ body{
                 width: 100%;
                 text-align: left;
                 font-size: 18px;
+
+                tr {
+                    max-width: 100%;
+                }
 
                 thead {
                     position: sticky;
@@ -149,7 +162,7 @@ body{
                     .Link {
 
                         a {
-                            max-width: 430px;
+                            max-width: 550px;
                             display: inline-block;
                             overflow: hidden;
                             white-space: nowrap;

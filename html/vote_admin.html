@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>投票サイト 管理ページ</title>
+
+<body>
+    <h1>学生データ追加</h1>
+
+    <form action="../php/save_classmate.php" method="POST">
+        <div>
+            <label>学籍番号</label>
+            <input type="number" name="No" id="student-no" placeholder="学籍番号" required>
+        </div>
+
+        <div>
+            <label>名前</label>
+            <input type="text" name="Name" id="name" placeholder="名前" required>
+        </div>
+
+        <div>
+            <label>メール</label>
+            <input type="email" name="Mail" id="mail" placeholder="メールアドレス">
+        </div>
+
+        <div>
+            <label>リンク</label>
+            <input name="Link" id="link" placeholder="HPリンク">
+        </div>
+
+        <button type="submit" id="submit-btn">
+            追加
+        </button>
+    </form>
+
+<script src="../js/vote_admin.js" defer></script>
+</body>
+</html>

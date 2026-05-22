@@ -25,7 +25,7 @@ if ($user && $password === $user['pass']) {
     $_SESSION['login'] = true;
     $_SESSION['user_id'] = $user['No'];
 
-    header("Location: ../html/vote.html");
+    header("Location: vote.php");
     exit;
 
 } else {
