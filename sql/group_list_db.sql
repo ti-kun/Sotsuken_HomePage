@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- ホスト: 127.0.0.1
--- 生成日時: 2026-05-13 06:35:20
+-- 生成日時: 2026-05-22 10:16:51
 -- サーバのバージョン： 10.4.32-MariaDB
 -- PHP のバージョン: 8.2.12
 
@@ -41,6 +41,31 @@ INSERT INTO `class` (`class_code`, `class_name`) VALUES
 ('US2A', '大学Wスクール(SE養成) 2年'),
 ('US3A', '大学Wスクール(SE養成) 3年'),
 ('US4A', '大学Wスクール(SE養成) 4年');
+
+-- --------------------------------------------------------
+
+--
+-- テーブルの構造 `classmate`
+--
+
+CREATE TABLE `classmate` (
+  `No` int(7) NOT NULL,
+  `pass` varchar(100) NOT NULL DEFAULT 'pass',
+  `Name` varchar(100) NOT NULL,
+  `Mail` varchar(255) NOT NULL,
+  `Link` varchar(255) NOT NULL,
+  `vote` int(7) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- テーブルのデータのダンプ `classmate`
+--
+
+INSERT INTO `classmate` (`No`, `pass`, `Name`, `Mail`, `Link`, `vote`) VALUES
+(1230212, 'pass', '鈴木　隆友', 'shadow@mail.com', 'http://shadow/sotsuken.html', NULL),
+(1238102, 'pass', '阿部　真大', 'rizamaru', 'rizamaru', NULL),
+(1238109, 'pass', '菅野　晴天', 'tiharu0317773@gmail.com', '../html/home.html', 1230212),
+(1238401, 'pass', '有吉　凜', 'tubo@mail.com', 'http://tubo/sotstuken.html', NULL);
 
 -- --------------------------------------------------------
 
@@ -97,6 +122,12 @@ INSERT INTO `members` (`No`, `date`, `time`, `class_code`, `title`, `HP_link`, `
 --
 ALTER TABLE `class`
   ADD PRIMARY KEY (`class_code`);
+
+--
+-- テーブルのインデックス `classmate`
+--
+ALTER TABLE `classmate`
+  ADD PRIMARY KEY (`No`);
 
 --
 -- テーブルのインデックス `members`
