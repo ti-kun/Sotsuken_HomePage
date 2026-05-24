@@ -20,7 +20,11 @@ datebtns.forEach(btn => {
     btn.addEventListener('click', () => {
         if(btn.classList.contains("active")){
             btn.classList.remove("active");
+            timebtns.forEach(t => {
+                t.classList.remove("active");
+            });
             selectedDate = 'all';
+            selectedTime = 'all';
             timecard.classList.add("hidden");
             datecard.classList.add("full");
         }else{
