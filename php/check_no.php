@@ -2,6 +2,18 @@
 
 header('Content-Type: application/json');
 
+if (!isset($_GET['No'])) {
+
+    echo json_encode([
+        'exists' => false
+    ]);
+
+    exit;
+
+}
+
+$No = (int)$_GET['No'];
+
 $conn = new mysqli(
     "localhost",
     "root",
@@ -9,33 +21,34 @@ $conn = new mysqli(
     "group_list_db"
 );
 
-$No = (int)$_GET['No'];
+$stmt = $conn->prepare("
+    SELECT *
+    FROM classmate
+    WHERE No = ?
+");
 
-$sql = "
-SELECT
-    No,
-    Name,
-    Mail,
-    Link
-FROM classmate
-WHERE No = ?
-";
-
-$stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $No);
+
 $stmt->execute();
+
 $result = $stmt->get_result();
 
-if ($row = $result->fetch_assoc()) {
+if ($result->num_rows > 0) {
+
+    $student = $result->fetch_assoc();
+
     echo json_encode([
-        "exists" => true,
-        "Name" => $row['Name'],
-        "Mail" => $row['Mail'],
-        "Link" => $row['Link']
+        'exists' => true,
+        'No' => $student['No'],
+        'Name' => $student['Name'],
+        'Mail' => $student['Mail'],
+        'Link' => $student['Link']
     ]);
+
 } else {
+
     echo json_encode([
-        "exists" => false
+        'exists' => false
     ]);
+
 }
-?>

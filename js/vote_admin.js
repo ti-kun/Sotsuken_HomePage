@@ -184,6 +184,10 @@ async function deleteStudent(no) {
 
 /**一覧表示 */
 function renderStudents(data) {
+    document.getElementById(
+        'student-count'
+    ).textContent = data.length;
+    
     tbody.innerHTML = data.map(student => `
         <tr>
             <td>${student.No}</td>

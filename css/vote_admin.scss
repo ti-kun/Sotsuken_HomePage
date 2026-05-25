@@ -193,6 +193,20 @@ button {
     }
 }
 
+.count-bar {
+    margin-bottom: .8rem;
+
+    text-align: right;
+
+    font-size: .85rem;
+
+    color: var(--muted);
+
+    strong {
+        color: var(--text);
+    }
+}
+
 .table-wrap {
     overflow-x: auto;
 
