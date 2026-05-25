@@ -25,6 +25,36 @@ body {
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
 }
 
+/* 戻るボタン*/
+.back-button-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+}
+
+.back-button {
+    min-width: 180px;
+    height: 52px;
+    padding: 0 28px;
+    border: none;
+    border-radius: 999px;
+    background: #1d5ea8;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+        background: #174a87;
+        transform: translateY(-2px);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
+
 /* タイトル */
 .title-wrap {
     margin-bottom: 35px;

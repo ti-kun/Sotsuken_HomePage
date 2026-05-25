@@ -38,6 +38,12 @@ $result = $conn->query($sql);
 
 <body id="result-page">
     <div class="result-card">
+        <div class="back-button-wrap">
+            <button class="back-button" onclick="location.href='../html/login.html'">
+                ← ログイン画面へ
+            </button>
+        </div>
+
         <div class="title-wrap">
             <h1>投票結果</h1>
         </div>
