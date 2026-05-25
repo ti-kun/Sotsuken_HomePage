@@ -1,5 +1,12 @@
 <?php
 
+header('Content-Type: application/json');
+
+$data = json_decode(
+    file_get_contents('php://input'),
+    true
+);
+
 $conn = new mysqli(
     "localhost",
     "root",
@@ -7,13 +14,54 @@ $conn = new mysqli(
     "group_list_db"
 );
 
-$No = (int)$_POST['No'];
+if ($conn->connect_error) {
 
-$Name = trim($_POST['Name']);
+    echo json_encode([
+        'success' => false,
+        'message' => 'DB接続失敗'
+    ]);
 
-$Mail = trim($_POST['Mail']);
+    exit;
 
-$Link = trim($_POST['Link']);
+}
+
+$mode = $data['mode'] ?? '';
+
+/* =========================
+削除
+========================= */
+
+if ($mode === 'delete') {
+
+    $No = (int)$data['No'];
+
+    $stmt = $conn->prepare("
+        DELETE FROM classmate
+        WHERE No = ?
+    ");
+
+    $stmt->bind_param("i", $No);
+
+    $result = $stmt->execute();
+
+    echo json_encode([
+        'success' => $result
+    ]);
+
+    exit;
+}
+
+/* =========================
+保存・更新
+========================= */
+
+$No = (int)$data['No'];
+
+$Name = trim($data['Name']);
+
+$Mail = trim($data['Mail']);
+
+$Link = trim($data['Link']);
 
 $sql = "
 INSERT INTO classmate (
@@ -42,35 +90,6 @@ $stmt->bind_param(
 
 $result = $stmt->execute();
 
-?>
-
-<!DOCTYPE html>
-<html lang='ja'>
-
-<head>
-<meta charset='UTF-8'>
-<title>保存完了</title>
-</head>
-
-<body>
-
-<?php if($result): ?>
-
-    <h1>保存完了</h1>
-
-<?php else: ?>
-
-    <h1>保存失敗</h1>
-
-    <p>
-        <?= htmlspecialchars($conn->error) ?>
-    </p>
-
-<?php endif; ?>
-
-<a href="../html/vote_admin.html">
-    戻る
-</a>
-
-</body>
-</html>
+echo json_encode([
+    'success' => $result
+]);
