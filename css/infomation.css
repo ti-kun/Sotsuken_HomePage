@@ -225,7 +225,7 @@ body {
   overflow: hidden;
   box-shadow: 0 1px 4px rgba(24,95,165,0.07);
   overflow-y: scroll;
-  max-height: 600px;
+  max-height: 500px;
 }
 table {
   width: 100%;
