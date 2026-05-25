@@ -9,6 +9,11 @@ const linkInput =
     document.getElementById("link");
 const submitBtn =
     document.getElementById("submit-btn");
+const tbody = document.getElementById('student-list');
+let allStudents = [];
+let editMode = false;
+let editNo = null;
+let originalNo = null;
 
 noInput.addEventListener("input", async () => {
     if (editMode) return;
@@ -39,11 +44,6 @@ noInput.addEventListener("input", async () => {
     }
 });
 
-const tbody = document.getElementById('student-list');
-let allStudents = [];
-let editMode = false;
-let editNo = null;
-
 async function loadStudents() {
     try {
         const response = await fetch('../php/get_classmate.php');
@@ -58,19 +58,17 @@ async function loadStudents() {
 
 /**編集ボタン押下時 */
 function editStudent(no) {
-    const student = allStudents.find(s => s.No == no);
+    const student = allStudents.find(
+        s => s.No == no
+    );
     if (!student) return;
     editMode = true;
-    editNo = no;
-    document.getElementById('student-no').value = student.No;
-    document.getElementById('name').value = student.Name;
-    document.getElementById('mail').value = student.Mail ?? '';
-    document.getElementById('link').value = student.Link ?? '';
-    document.getElementById('submit-btn').textContent = '更新';
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
+    originalNo = student.No;
+    noInput.value = student.No;
+    nameInput.value = student.Name;
+    mailInput.value = student.Mail ?? '';
+    linkInput.value = student.Link ?? '';
+    submitBtn.textContent = '更新';
 }
 
 /**保存ボタン押下時 */
@@ -122,6 +120,7 @@ async function saveStudent() {
                 },
                 body: JSON.stringify({
                     mode: 'save',
+                    originalNo,
                     No,
                     Name,
                     Mail,
@@ -148,9 +147,9 @@ async function saveStudent() {
 /**リセットボタン押下時 */
 function resetForm() {
     editMode = false;
-    editNo = null;
-    document.getElementById('submit-btn').textContent = '追加';
+    originalNo = null;
     document.querySelector('form').reset();
+    submitBtn.textContent = '追加';
 }
 
 /**削除ボタン押下時 */
@@ -187,7 +186,7 @@ function renderStudents(data) {
     document.getElementById(
         'student-count'
     ).textContent = data.length;
-    
+
     tbody.innerHTML = data.map(student => `
         <tr>
             <td>${student.No}</td>

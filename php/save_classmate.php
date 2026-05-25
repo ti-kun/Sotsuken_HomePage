@@ -54,6 +54,7 @@ if ($mode === 'delete') {
 /* =========================
 保存・更新
 ========================= */
+$originalNo = $data['originalNo'] ?? null;
 
 $No = (int)$data['No'];
 
@@ -63,30 +64,50 @@ $Mail = trim($data['Mail']);
 
 $Link = trim($data['Link']);
 
-$sql = "
-INSERT INTO classmate (
-    No,
-    Name,
-    Mail,
-    Link
-)
-VALUES (?, ?, ?, ?)
+if ($originalNo !== null) {
+    $sql = "
+    UPDATE classmate
+    SET
+        No = ?,
+        Name = ?,
+        Mail = ?,
+        Link = ?
+    WHERE No = ?
+    ";
 
-ON DUPLICATE KEY UPDATE
-    Name = VALUES(Name),
-    Mail = VALUES(Mail),
-    Link = VALUES(Link)
-";
+    $stmt = $conn->prepare($sql);
 
-$stmt = $conn->prepare($sql);
+    $stmt->bind_param(
+        "isssi",
+        $No,
+        $Name,
+        $Mail,
+        $Link,
+        $originalNo
+    );
+}
 
-$stmt->bind_param(
-    "isss",
-    $No,
-    $Name,
-    $Mail,
-    $Link
-);
+else {
+    $sql = "
+    INSERT INTO classmate (
+        No,
+        Name,
+        Mail,
+        Link
+    )
+    VALUES (?, ?, ?, ?)
+    ";
+
+    $stmt = $conn->prepare($sql);
+
+    $stmt->bind_param(
+        "isss",
+        $No,
+        $Name,
+        $Mail,
+        $Link
+    );
+}
 
 $result = $stmt->execute();
 
