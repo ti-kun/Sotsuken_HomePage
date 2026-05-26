@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- ホスト: 127.0.0.1
--- 生成日時: 2026-05-22 10:16:51
+-- 生成日時: 2026-05-26 04:12:32
 -- サーバのバージョン： 10.4.32-MariaDB
 -- PHP のバージョン: 8.2.12
 
@@ -62,10 +62,30 @@ CREATE TABLE `classmate` (
 --
 
 INSERT INTO `classmate` (`No`, `pass`, `Name`, `Mail`, `Link`, `vote`) VALUES
-(1230212, 'pass', '鈴木　隆友', 'shadow@mail.com', 'http://shadow/sotsuken.html', NULL),
+(1230212, 'pass', '鈴木　隆友', 'suzuki@mail.com', 'suzuki.html', NULL),
+(1230307, 'pass', '菊地　蓮斗', 'kikuti@mail.com', 'kikuti.html', NULL),
+(1230312, 'pass', '髙野　涼太郎', 'takano@mail.com', 'takano.html', NULL),
+(1238101, 'pass', '阿久津　幸翼', 'akutu@mail.com', 'akutu.html', NULL),
 (1238102, 'pass', '阿部　真大', 'rizamaru', 'rizamaru', NULL),
+(1238103, 'pass', '飯塚　琉', 'takenoko@mail.com', 'takenoko.html', NULL),
+(1238104, 'pass', '石川　一輝', 'kazuo@mail.com', 'kazuo.html', NULL),
+(1238105, 'pass', '石橋　龍河', 'ryuuga@mail.com', 'ryuuga.html', NULL),
+(1238106, 'pass', '岩瀬　陸斗', 'iwase@mail.com', 'iwase.html', NULL),
+(1238107, 'pass', '加藤　悠記', 'tubo@mail.com', 'tubo.html', NULL),
 (1238109, 'pass', '菅野　晴天', 'tiharu0317773@gmail.com', '../html/home.html', 1230212),
-(1238401, 'pass', '有吉　凜', 'tubo@mail.com', 'http://tubo/sotstuken.html', NULL);
+(1238111, 'pass', '小島　未有', 'kojima@mail.com', 'kojima.html', NULL),
+(1238112, 'pass', '須藤　秀之介', 'su-san@mail.com', 'su-san.html', NULL),
+(1238113, 'pass', '髙津戸　啓太', 'yosigyuu@mail.com', 'yosigyuu.html', NULL),
+(1238114, 'pass', '田名網　惇生', 'anchobi@mail.com', 'anchobi.html', NULL),
+(1238115, 'pass', '手塚　大翔', 'teduka@mail.com', 'teduka.html', NULL),
+(1238116, 'pass', '鳥山　遼太', 'toriyama@mail.com', 'toriyama.html', NULL),
+(1238117, 'pass', '永山　嵩都', 'nagayama@mail.com', 'nagayama.html', NULL),
+(1238118, 'pass', '半田　涼真', 'shadow@mail.com', 'shadow.html', NULL),
+(1238119, 'pass', '舩田　浩希', 'hunada@mail.com', 'hunada.html', NULL),
+(1238120, 'pass', '細谷　隼輔', 'hosoya@mail.com', 'hosoya.html', NULL),
+(1238121, 'pass', '前田　晃佑', 'maeda@mail.com', 'maeda.html', NULL),
+(1238122, 'pass', '松岡　功大', 'mattyann@mail.com', 'mattyann.html', 1238118),
+(1238401, 'pass', '有吉　凜', 'ariyosi@mail.com', 'ariyosi.html', NULL);
 
 -- --------------------------------------------------------
 
