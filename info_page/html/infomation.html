@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>令和8年 卒業研究発表会 案内</title>
+<link rel="stylesheet" href="../css/infomation.css">
+</head>
+<body>
+<div class="container">
+
+  <!-- ヘッダー -->
+  <div class="header">
+    <h1>令和8年○○月　卒業研究発表会　案内</h1>
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="label">開催期間</div>
+        <div class="value">〇月△日 〜 〇月□日</div>
+      </div>
+      <div class="info-card">
+        <div class="label">開催場所</div>
+        <div class="value">F館7階 ホール</div>
+      </div>
+    </div>
+  </div>
+
+  <!--メニュー-->
+  <div class="menu-wrapper">
+        <input type="checkbox" id="menu-toggle" hidden>
+    
+        <label class="menu-icon" for="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        
+        <label for="menu-toggle" class="overlay"></label>
+        
+            <nav class="menu">
+            <ul>
+                <li><a href="https://www.ubdc.ac.jp/">学校TOP</a></li>
+                <li><a href="login.html">投票サイト</a></li>
+                <li><a href="info_admin.html">案内サイト管理画面</a></li>
+                <li><a href="vote_admin.html">投票サイト管理画面</a></li>
+            </ul>
+        </nav>
+    </div>
+
+  <!-- フィルター -->
+  <div class="filter-bar">
+    <div class="filter-left">
+      <div class="filter-card date-card">
+        <p>日付</p>
+        <button class="date-btn" data-date="2027-01-05">1/5</button>
+        <button class="date-btn" data-date="2027-01-06">1/6</button>
+        <button class="date-btn" data-date="2027-01-07">1/7</button>
+      </div>
+
+      <div class="filter-card time-card">
+        <p>時間</p>
+        <button class="time-btn" data-time="1">1限</button>
+        <button class="time-btn" data-time="2">2限</button>
+        <button class="time-btn" data-time="3">3限</button>
+        <button class="time-btn" data-time="4">4限</button>
+        <button class="time-btn" data-time="5">5限</button>
+        <button class="time-btn" data-time="6">6限</button>
+      </div>
+    </div>
+
+    <div class="filter-card reset-card">
+      <button class="reset-btn">リセット</button>
+    </div>
+  </div>
+
+  <!-- 件数表示 -->
+  <div class="count-bar"><strong id="count">20</strong> 件表示中</div>
+
+  <!-- テーブル -->
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 8%;">日付</th>
+          <th style="width: 4%;">時間</th>
+          <th style="width: 18%;">発表クラス</th>
+          <th style="width: 35%;">タイトル</th>
+          <th style="width: 35%;">概要</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+      </tbody>
+    </table>
+  </div>
+
+  <div class="footer">令和8年度 卒業研究発表会</div>
+</div>
+<script src="../js/filter.js" defer></script>
+</body>
+</html>

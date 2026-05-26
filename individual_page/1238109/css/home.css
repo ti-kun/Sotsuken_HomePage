@@ -1,0 +1,294 @@
+@charset "UTF-8";
+@font-face {
+    font-family: "けいフォント";
+    src: url("../fonts/keifont.ttf");
+}
+
+@font-face {
+    font-family: "あずきフォント";
+    src: url("../fonts/azuki.ttf");
+}
+
+/*グローバル*/
+h1, h2, h3 {
+    margin: 0;
+}
+
+html {
+    overflow-y: scroll;
+}
+
+/*ボディ*/
+body {
+    margin: 0;
+    background-color: #f9f1d8;
+}
+
+/*メニュー*/
+.menu-wrapper {
+    position: relative;
+}
+
+.menu-icon {
+    width: 40px;
+    height: 30px;
+    position: fixed; /* ← fixedにして常に左上固定 */
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 21;
+    display: inline-block;
+}
+
+.menu-icon span {
+    display: block;
+    height: 4px;
+    margin: 6px 0;
+    background: #fff;
+    border-radius: 2px;
+    transition: 0.4s;
+}
+
+/* ハンバーガーがXに変形 */
+#menu-toggle:checked + .menu-icon span:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+}
+#menu-toggle:checked + .menu-icon span:nth-child(2) {
+    opacity: 0;
+}
+#menu-toggle:checked + .menu-icon span:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+/* ボタンを黒く*/
+#menu-toggle:checked + .menu-icon span {
+    background: #333;
+}
+
+/* オーバーレイ背景 */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.4s;
+    z-index: 19;
+}
+
+#menu-toggle:checked ~ .overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* メニュー本体（右から出す） */
+.menu {
+    position: fixed;
+    top: 0;
+    right: -250px; /* ← 初期位置を右へ */
+    width: 250px;
+    height: 100%;
+    background: #fff;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+    transition: right 0.4s ease;
+    z-index: 20;
+}
+
+#menu-toggle:checked ~ .menu {
+  right: 0; /* ← 開いたときは右0へ */
+}
+
+.menu ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 60px 0px;
+}
+
+.menu li {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    transition: 0.2s;
+}
+
+.menu li:hover {
+    background-color: rgb(0, 0, 0, 0.3);
+}
+
+.menu a {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 20px 0 20px 30px;
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+/*メインタイトル*/
+.header {
+    display: flex;
+    margin: 0px;
+    background-image: url("../pictures/RTX3080Ti.JPG");
+    background-size: cover;
+    background-position: center;
+
+}
+
+.main_title {
+    display: flex;
+    height: 20dvh;
+    width: 100%;
+    color: white;
+    font-family: "けいフォント";
+    font-size: 100px;
+    justify-content: center;
+    align-items: center;
+    }
+
+/*インデックス*/
+.index {
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.button {
+    display: flex;
+    font-family: "あずきフォント";
+    font-size: 30px;
+    text-align: center;
+    background-color: rgb(0, 110, 255);
+    border-top: 2px solid rgb(8, 0, 126);
+    border-bottom: 2px solid rgb(8, 0, 126);
+    height: 10dvh;
+    width: 33.33%;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: 0.15s;
+}
+
+.button.active {
+    background-color: rgb(0, 110, 255, 0.5);
+}
+
+.button_txt {
+    color: white;
+    transition: 0.2s;
+}
+
+.button:hover {
+    background-color: rgb(0, 110, 255, 0.8);
+}
+
+.button:hover .button_txt {
+    transform: translateY(-3px);
+}
+
+#button1 {
+    border-right: 1px solid rgb(8, 0, 126);
+    border-left: 2px solid rgb(8, 0, 126);
+}
+
+#button2 {
+    border-right: 1px solid rgb(8, 0, 126);
+    border-left: 1px solid rgb(8, 0, 126);
+}
+
+#button3 {
+    border-right: 2px solid rgb(8, 0, 126);
+    border-left: 1px solid rgb(8, 0, 126);
+}
+
+/*大見出し1*/
+/**共通項**/
+.member {
+    color: lightblue;
+    display: block;
+}
+
+.member ul {
+    margin: 0px 0px 50px 0px;
+    padding: 0px;
+    column-gap: 50px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    list-style: none;
+    align-items: stretch;
+}
+
+/**タイトル1**/
+.sub_title {
+    color: orange;
+    font-size: 40px;
+    font-family: "けいフォント";
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 0;
+}
+
+/*各コンテナ設定*/
+.member_card {
+    display: flex;
+    background-color: white;
+    border-radius: 20px;
+    border: 8px double #dda170;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    flex-direction: column;
+    max-width: 45%;
+    align-items: center;
+}
+
+.name {
+    color: pink;
+    text-shadow: 2px 2px 3px rgb(87, 87, 87);
+    font-family: "あずきフォント";
+    font-size: 40px;
+    text-align: center;
+    height: 15%;
+}
+
+.member_txt {
+    margin: 0;
+    padding: 0;
+    max-width: 80%;
+    text-align: left;
+    color: lightblue;
+    text-shadow: 1px 1px 1px black;
+    font-size: 25px;
+    font-family: "あずきフォント";
+}
+
+.member_link {
+    display: block;
+    max-width: 60%;
+    margin: 50px auto;
+    padding: 0px;
+}
+
+.member_image {
+    display: block;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    box-shadow: 2px 2px 2cqmin black;
+    transition: 0.3s;
+}
+
+.member_image:hover {
+    transform: scale(1.05);
+}
+
+#tiharu {
+    margin-left: 50px;
+}
+
+#takano {
+    margin-right: 50px;
+}
