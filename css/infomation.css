@@ -154,26 +154,25 @@ body {
 /* ---- Filter ---- */
 .filter-bar {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+
   margin: 2% 0;
   padding: 1% 0;
-  align-items: center;
+  height: 60px;
+
   border-radius: 12px;
   background: #e1f1ff;
   box-shadow: 0 1px 4px rgba(24,95,165,0.07);
 }
 
-.filter-bar span {
-  font-size: 12px;
-  color: #555;
-  margin-right: 4px;
+/* 左側まとめ */
+.filter-left {
+  display: flex;
+  width: 80%;
 }
 
-.filter-bar p {
-  font-weight: 500;
-  color: #0C447C;
-}
-
+/* 共通 */
 .filter-card {
   display: flex;
   justify-content: center;
@@ -182,26 +181,40 @@ body {
   transition: 0.2s;
 }
 
+/* 幅 */
 .date-card {
-  width: 30%;
+  width: 37.5%;
   border-right: 1px solid gray;
 }
 
 .time-card {
-  width: 50%;
+  width: 62.5%;
   border-right: 1px solid gray;
+  overflow: hidden;
+  transition: 0.2s;
 }
 
 .reset-card {
   width: 20%;
+  display: flex;
+  justify-content: center;
 }
 
-.full {
-  width: 80%;
-  gap: 120px;
-}
+/* 時間非表示 */
 .hidden {
-  display: none;
+  width: 0;
+  opacity: 0;
+  gap: 0;
+  padding: 0;
+  margin: 0;
+  border-right: none;
+  flex-shrink: 0;
+}
+
+/* 日付拡張 */
+.full {
+  width: 100%;
+  gap: 120px;
 }
 
 .filter-card button {
