@@ -58,6 +58,8 @@ $originalNo = $data['originalNo'] ?? null;
 
 $No = (int)$data['No'];
 
+$pass = trim($data['pass']);
+
 $Name = trim($data['Name']);
 
 $Mail = trim($data['Mail']);
@@ -69,6 +71,7 @@ if ($originalNo !== null) {
     UPDATE classmate
     SET
         No = ?,
+        pass = ?,
         Name = ?,
         Mail = ?,
         Link = ?
@@ -78,8 +81,9 @@ if ($originalNo !== null) {
     $stmt = $conn->prepare($sql);
 
     $stmt->bind_param(
-        "isssi",
+        "issssi",
         $No,
+        $pass,
         $Name,
         $Mail,
         $Link,
@@ -91,18 +95,20 @@ else {
     $sql = "
     INSERT INTO classmate (
         No,
+        pass,
         Name,
         Mail,
         Link
     )
-    VALUES (?, ?, ?, ?)
+    VALUES (?, ?, ?, ?, ?)
     ";
 
     $stmt = $conn->prepare($sql);
 
     $stmt->bind_param(
-        "isss",
+        "issss",
         $No,
+        $pass,
         $Name,
         $Mail,
         $Link

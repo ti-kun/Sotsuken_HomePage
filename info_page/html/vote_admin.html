@@ -22,67 +22,77 @@
             <h2>➕ 学生データ追加</h2>
 
             <form id="student-form">
+                <div class="form-group">
+                    <label for="student-no">学籍番号</label>
+                    <input
+                    type="number"
+                    name="No"
+                    id="student-no"
+                    placeholder="学籍番号"
+                    required
+                    >
+                </div>
 
-            <div class="form-group">
-                <label for="student-no">学籍番号</label>
-                <input
-                type="number"
-                name="No"
-                id="student-no"
-                placeholder="学籍番号"
-                required
-                >
-            </div>
+                <div class="form-group">
+                    <label for="pass">パスワード</label>
+                    <input
+                    type="pass"
+                    name="pass"
+                    id="pass"
+                    placeholder="パスワード(空白の場合初期値)"
+                    required
+                    >
+                </div>
 
-            <div class="form-group">
-                <label for="name">名前</label>
-                <input
-                type="text"
-                name="Name"
-                id="name"
-                placeholder="名前"
-                required
-                >
-            </div>
+                <div class="form-group">
+                    <label for="name">名前</label>
+                    <input
+                    type="text"
+                    name="Name"
+                    id="name"
+                    placeholder="名前"
+                    required
+                    >
+                </div>
 
-            <div class="form-group">
-                <label for="mail">メール</label>
-                <input
-                type="email"
-                name="Mail"
-                id="mail"
-                placeholder="メールアドレス"
-                >
-            </div>
+                <div class="form-group">
+                    <label for="mail">メール</label>
+                    <input
+                    type="email"
+                    name="Mail"
+                    id="mail"
+                    placeholder="メールアドレス"
+                    >
+                </div>
 
-            <div class="form-group">
-                <label for="link">リンク</label>
-                <input
-                type="text"
-                name="Link"
-                id="link"
-                placeholder="HPリンク"
-                >
-            </div>
+                <div class="form-group">
+                    <label for="link">リンク</label>
+                    <input
+                    type="text"
+                    name="Link"
+                    id="link"
+                    placeholder="HPリンク"
+                    >
+                </div>
 
-            <div class="btn-row">
-                <button
-                    type="button"
-                    class="btn-primary"
-                    id="submit-btn"
-                    onclick="saveStudent()"
-                >
-                    追加
-                </button>
+                <div class="btn-row">
+                    <button
+                        type="button"
+                        class="btn-primary"
+                        id="submit-btn"
+                        onclick="saveStudent()"
+                    >
+                        追加
+                    </button>
 
-                <button
-                    type="reset"
-                    class="btn-secondary"
-                    onclick="resetForm()"
-                >
-                    クリア
-                </button>
-            </div>
+                    <button
+                        type="reset"
+                        class="btn-secondary"
+                        onclick="resetForm()"
+                    >
+                        クリア
+                    </button>
+                </div>
             </form>
         </div>
 

@@ -1,6 +1,8 @@
 /**管理画面 */
 const noInput =
     document.getElementById("student-no");
+const passInput =
+    document.getElementById("pass");
 const nameInput =
     document.getElementById("name");
 const mailInput =
@@ -15,12 +17,19 @@ let editMode = false;
 let editNo = null;
 let originalNo = null;
 
+/**パスワード全角除外 */
+passInput.addEventListener('input', () => {
+    passInput.value =
+        passInput.value.replace(/[^\x20-\x7E]/g, '');
+});
+
 noInput.addEventListener("input", async () => {
     if (editMode) return;
     const no = noInput.value;
     if (!no) {
         submitBtn.textContent = "追加";
         nameInput.value = "";
+        passInput.value = "";
         mailInput.value = "";
         linkInput.value = "";
         return;
@@ -33,11 +42,13 @@ noInput.addEventListener("input", async () => {
 
     if (data.exists) {
         submitBtn.textContent = "更新";
+        passInput.value = data.pass ?? "";
         nameInput.value = data.Name ?? "";
         mailInput.value = data.Mail ?? "";
         linkInput.value = data.Link ?? "";
     } else {
         submitBtn.textContent = "追加";
+        passInput.value = "";
         nameInput.value = "";
         mailInput.value = "";
         linkInput.value = "";
@@ -65,6 +76,7 @@ function editStudent(no) {
     editMode = true;
     originalNo = student.No;
     noInput.value = student.No;
+    passInput.value = student.pass
     nameInput.value = student.Name;
     mailInput.value = student.Mail ?? '';
     linkInput.value = student.Link ?? '';
@@ -74,6 +86,7 @@ function editStudent(no) {
 /**保存ボタン押下時 */
 async function saveStudent() {
     const No = noInput.value.trim();
+    let pass = passInput.value.trim();
     const Name = nameInput.value.trim();
     const Mail = mailInput.value.trim();
     const Link = linkInput.value.trim();
@@ -86,6 +99,10 @@ async function saveStudent() {
         alert('学籍番号を入力してください');
         noInput.focus();
         return;
+    }
+
+    if (!pass) {
+        pass = 'pass';
     }
 
     if (!Name) {
@@ -122,6 +139,7 @@ async function saveStudent() {
                     mode: 'save',
                     originalNo,
                     No,
+                    pass,
                     Name,
                     Mail,
                     Link

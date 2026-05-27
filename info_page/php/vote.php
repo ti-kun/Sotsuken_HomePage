@@ -7,6 +7,7 @@ if (!isset($_SESSION['login'])) {
 }
 
 $user_no = $_SESSION['user_id'];
+$user_name = $_SESSION['user_name'];
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +22,8 @@ $user_no = $_SESSION['user_id'];
     <div class="login-user">
         <p>
             ログイン中のアカウント：
-            <?php echo htmlspecialchars($user_no, ENT_QUOTES, 'UTF-8'); ?>
+            <?php echo htmlspecialchars($user_no, ENT_QUOTES, 'UTF-8'); ?>&nbsp;&nbsp;
+            <?php echo htmlspecialchars($user_name, ENT_QUOTES, 'UTF-8'); ?>
         </p>
     </div>
 
